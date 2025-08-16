@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MANASYS Jazz — Modernize Mainframe Apps Faster</title>
+  <meta name="description" content="Generate COBOL, JCL, CICS screens, and JSON from concise Jazz definitions. Bridge legacy reliability with modern delivery speed." />
+  <meta property="og:title" content="MANASYS Jazz — Modernize Mainframe Apps Faster" />
+  <meta property="og:description" content="Make programming as simple as possible without sacrificing flexibility, efficiency, or safety." />
+  <meta property="og:type" content="website" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preload" as="image" href="manasys-logo-transparent.png" />
+</head>
+<body class="min-h-dvh bg-white text-gray-900 antialiased">
+  <!-- Header -->
+     <header class="bg-white/80 border-b border-gray-200">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <img id="siteLogo" src="manasys-logo-transparent.png" alt="MANASYS Jazz logo" class="h-32 w-auto" loading="eager" />
+      </a>
+             <nav class="flex items-center gap-3">
+                   <a href="https://www.jazzsoftware.co.nz/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-2xl bg-sky-600 hover:bg-sky-500 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 transition">Main Website</a>
+         <a href="mailto:info@jazzsoftware.co.nz" class="px-4 py-2 rounded-2xl border border-gray-300 hover:border-gray-400 text-gray-700">Contact</a>
+       </nav>
+    </div>
+  </header>
+
+    <!-- Hero -->
+  <section class="relative bg-gray-50">
+    <div class="mx-auto max-w-6xl px-4 py-2">
+      <div class="max-w-3xl">
+      </div>
+    </div>
+  </section>
+
+  <!-- Chat Section -->
+  <section id="chat" class="mx-auto max-w-6xl px-4 pb-20">
+                             <div class="rounded-2xl border-2 border-gray-400 bg-gray-50 p-4 md:p-6 shadow-lg">
+        <div class="flex items-center justify-between mb-3">
+         <h2 class="text-xl md:text-2xl font-semibold">Talk to our Copilot (Preview)</h2>
+         <a href="#chat" class="px-4 py-2 rounded-2xl bg-sky-600 hover:bg-sky-500 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 transition">Start a Chat</a>
+        </div>
+        <p class="text-gray-600 mb-4">
+         Ask about COBOL modernization, CICS web services, migration options, and productivity improvements.
+        </p>
+        
+        <!-- PASTE COPILOT STUDIO EMBED BELOW -->
+        <div id="copilot-embed" class="w-full min-h-[70vh] md:min-h-[70vh] overflow-hidden rounded-xl bg-white border-2 border-gray-400 flex items-center justify-center">
+          <div class="text-center text-gray-500">
+            <p class="mb-2">Paste your Copilot Studio embed snippet here.</p>
+            <p class="text-xs">This container will auto-size the iframe/script once added.</p>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-200">
+    <div class="mx-auto max-w-6xl px-4 py-8 text-sm text-gray-500">
+      © <span id="year"></span> Jazz Software Ltd
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for internal links (basic)
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Logo fallback handling
+    const logo = document.getElementById('siteLogo');
+    logo.addEventListener('error', () => {
+      logo.src = 'manasys logo.png';
+    });
+
+    // If a Copilot embed injects an iframe/script, enforce sizing and rounded corners
+    const embed = document.getElementById('copilot-embed');
+    const resizeEmbed = () => {
+      const iframe = embed.querySelector('iframe');
+      if (iframe) {
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.minHeight = '70vh';
+        iframe.style.border = '0';
+        iframe.style.borderRadius = '0.75rem';
+        embed.style.padding = '0';
+      }
+    };
+    const obs = new MutationObserver(resizeEmbed);
+    obs.observe(embed, { childList: true, subtree: true });
+    resizeEmbed();
+  </script>
+</body>
+</html>
